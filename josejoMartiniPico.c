@@ -7,6 +7,7 @@
 int main()
 {
     // i want that the system wait for 4 seconds, and after on led, and after off vamos!
+    //genial!
     stdio_init_all();
     gpio_init(led);
     gpio_set_dir(led,GPIO_OUT);
