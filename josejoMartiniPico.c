@@ -1,27 +1,25 @@
 #include <stdio.h>
-#include <time.h>
 #include "pico/stdlib.h"
+#include "secuencia.h"
 
-#define led 25
 
 int main()
 {
     // i want that the system wait for 4 seconds, and after on led, and after off vamos!
     //genial!
     stdio_init_all();
-    gpio_init(led);
-    gpio_set_dir(led,GPIO_OUT);
-    bool led_state=true;
-    gpio_put(led,led_state);
-    uint32_t start_time= to_ms_since_boot(get_absolute_time());
-    uint32_t final_time= to_ms_since_boot(get_absolute_time());
+    gpio_init(18);
+    gpio_init(19);
+    gpio_init(20);
+
+    gpio_set_dir(18,GPIO_OUT);
+    gpio_set_dir(19,GPIO_OUT);
+    gpio_set_dir(20,GPIO_OUT);
+
+  
     while (true) {
-        final_time= to_ms_since_boot(get_absolute_time());
-        if(final_time-start_time>=4000){
-            led_state= !led_state;
-            gpio_put(led,led_state);
-            start_time=to_ms_since_boot(get_absolute_time());
-        }
+        
+        LedsSequence();
 
     }
     return 0;
