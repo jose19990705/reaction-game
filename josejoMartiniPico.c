@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "secuencia.h"
-
+#include <stdlib.h>
 
 int main()
 {
@@ -15,11 +15,17 @@ int main()
     gpio_set_dir(18,GPIO_OUT);
     gpio_set_dir(19,GPIO_OUT);
     gpio_set_dir(20,GPIO_OUT);
+    srand(time_us_32());
 
-  
+    LedsSequence();
     while (true) {
         
-        LedsSequence();
+
+        uint8_t led_aleatorio=random_led();
+        printf("el led es: %d\n", led_aleatorio);
+
+        wait(3000);
+
 
     }
     return 0;
