@@ -1,6 +1,8 @@
 #include "pico/stdlib.h"
 #include "secuencia.h"
 #include <time.h>
+#include <stdlib.h>
+
 
 
 
@@ -28,5 +30,30 @@ void LedsSequence(){
     wait(2000);
     gpio_clr_mask(Mask);
     wait(2000);
+}
+
+
+uint8_t random_led(){
+    uint8_t random_led= 1+ rand()%3;
+    switch (random_led)
+    {
+    case 1:
+        gpio_put(Led1,1);
+        gpio_put(Led2,0);
+        gpio_put(Led3,0);
+        break;
+    
+    case 2:
+        gpio_put(Led1,0);
+        gpio_put(Led2,1);
+        gpio_put(Led3,0);
+        break;
+    case 3:
+        gpio_put(Led1,0);
+        gpio_put(Led2,0);
+        gpio_put(Led3,1);
+        break;
+    }
+    return random_led;
 }
 
