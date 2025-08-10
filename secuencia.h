@@ -1,7 +1,10 @@
 #ifndef SECUENCIA_H
 #define SECUENCIA_H
 //definition Leds.
-#include <stdint.h>
+
+
+
+
 #define Led1 18
 #define Led2 19 
 #define Led3 20
