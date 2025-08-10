@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(josejoMartiniPico josejoMartiniPico.c secuencia.c)
+add_executable(josejoMartiniPico josejoMartiniPico.c secuencia.c display.c)
 
 pico_set_program_name(josejoMartiniPico "josejoMartiniPico")
 pico_set_program_version(josejoMartiniPico "0.1")
