@@ -6,9 +6,6 @@
 
 
 
-
-
-
 void Dec_7_segmentos(uint8_t number){
    // gpio_put_masked(mask_digit,0);
 
