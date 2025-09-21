@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(josejoMartiniPico josejoMartiniPico.c secuencia.c display.c)
+add_executable(josejoMartiniPico josejoMartiniPico.c secuencia.c display.c pulsador.c)
 
 pico_set_program_name(josejoMartiniPico "josejoMartiniPico")
 pico_set_program_version(josejoMartiniPico "0.1")
@@ -47,7 +47,8 @@ pico_enable_stdio_usb(josejoMartiniPico 0)
 # Add the standard library to the build
 target_link_libraries(josejoMartiniPico
         pico_stdlib
-        pico_stdio_usb)
+        pico_stdio_usb
+        hardware_spi)
 
 # Add the standard include files to the build
 target_include_directories(josejoMartiniPico PRIVATE
