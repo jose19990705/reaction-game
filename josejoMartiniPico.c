@@ -3,7 +3,9 @@
 #include "secuencia.h"
 #include "display.h"
 #include "pulsador.h"
+#include <time.h>
 #include <stdlib.h>
+
 
 
 int main() {
@@ -69,7 +71,11 @@ int main() {
      gpio_set_dir(RST,GPIO_IN);
 
      //Definición de variables.
-     bool reseteo=false;
+     bool reseteo = false, valid = false, boton_pulsado = false;
+     uint8_t led_aleatorio=0;
+     int64_t tiempo_presion_boton=0;
+
+
 
     
 
@@ -87,8 +93,52 @@ int main() {
       }
 
       if(!reseteo){
+        
+        //Secuencia y led aleatorio.
+        LedsSequence();
+        led_aleatorio= random_led();
+        tiempo_presion_boton=to_ms_since_boot(get_absolute_time());
 
-      }
+
+      
+        while(tiempo_presion_boton<10000){
+
+          if(gpio_get(Pulsador1) == 1 || gpio_get(Pulsador2) == 1 || gpio_get(Pulsador3) == 1){
+
+            boton_pulsado=true;
+            break;
+          }
+          tiempo_presion_boton=to_ms_since_boot(get_absolute_time());
+        }
+
+        if(boton_pulsado){
+          switch (led_aleatorio)
+        {
+        case 1:
+          if(gpio_get(Pulsador1)){
+            valid=true;
+          } else{
+            valid=false;
+          }
+          break;
+
+        case 2:
+          if(gpio_get(Pulsador2)){
+            valid=true;
+          } else{
+            valid=false;
+          }
+          break;
+        case 3:
+          if(gpio_get(Pulsador3)){
+            valid=true;
+          } else{
+            valid=false;
+          }
+          break;
+        }
+      } 
+    }
 
 
         //wait(1);
