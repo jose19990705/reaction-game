@@ -1,13 +1,6 @@
 
-#include "pico/stdlib.h"
-#include "secuencia.h"
-#include <time.h>
-#include <stdlib.h>
-#include <stdint.h>
-
 
 //Sequence.
-
 void wait(uint16_t time_sleep){
     int64_t before_time=to_ms_since_boot(get_absolute_time());
     int64_t actual_time=to_ms_since_boot(get_absolute_time());
