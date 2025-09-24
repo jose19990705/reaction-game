@@ -1,11 +1,11 @@
 #include "pulsador.h"
 
-bool debounce() {
+bool debounce(uint8_t Pulsador_presionado) {
     static bool last_stable_state = false;  
     static bool last_read_state = false;    
     static int64_t last_debounce_time = 0;  
 
-    bool current_state = gpio_get(Pulsador);
+    bool current_state = gpio_get(Pulsador_presionado);
     int64_t current_time = to_ms_since_boot(get_absolute_time());
 
     if (current_state != last_read_state) {
@@ -29,15 +29,3 @@ bool debounce() {
 
 
 
-void pulsado() {
-    uint8_t contador = 0;
-
-    while (contador <= 10) {
-
-        if (debounce()) {
-            contador += 1;
-            printf("contador: %d\n", contador);
-        }
-
-    }
-}

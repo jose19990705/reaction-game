@@ -97,6 +97,7 @@ void showTime(uint16_t time){
         }
 
 
+       
 
         while((actual_time-start_time)<5){
             Dec_7_segmentos(showDigit);
@@ -108,4 +109,8 @@ void showTime(uint16_t time){
 
 
 
+
+
 }
+
+

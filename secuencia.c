@@ -1,4 +1,4 @@
-
+#include "secuencia.h"
 
 //Sequence.
 void wait(uint16_t time_sleep){
