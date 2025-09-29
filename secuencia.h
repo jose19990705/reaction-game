@@ -2,9 +2,8 @@
 #define SECUENCIA_H
 //definition Leds.
 
-#include "pico/stdlib.h"
-#include "secuencia.h"
 #include <time.h>
+#include "pico/stdlib.h"
 #include <stdlib.h>
 #include <stdint.h>
 
