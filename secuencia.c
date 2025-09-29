@@ -2,7 +2,7 @@
 
 //Sequence.
 void wait(uint16_t time_sleep){
-    int64_t before_time=to_ms_since_boot(get_absolute_time());
+    int64_t before_time= to_ms_since_boot(get_absolute_time());
     int64_t actual_time=to_ms_since_boot(get_absolute_time());
     while((actual_time-before_time)<time_sleep){
         actual_time=to_ms_since_boot(get_absolute_time());
